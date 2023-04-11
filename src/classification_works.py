@@ -22,19 +22,20 @@ keyword_categories = {
                       'fly over', 'flyover', 'cement concrete', 'cc patch',
                       'bridge'],
     'footpath_keywords': ['footpath', 'foot path'],
-    'drainage_keywords': ['drain', 'drian', ' ugd ', 'rcc dra', 'culvert',
+    'drainage_keywords': ['drain', 'drian', 'ugd ', 'rcc dra', 'culvert',
                           'sw line', 'silt', ' swd '],
-    'electricity_keywords': ['electric', 'light', 'illumination'],
+    'electricity_keywords': ['electri', 'light', 'illumination'],
     'women_keywords': ['stri shakthi'],
     'drinking water_keywords': ['drinking water', 'drinking', 'r o', 'ro plant',
                                 'supply of water', 'supplying of water',
-                                'water supply'],
+                                'water supply', 'water scheme', 'water line',
+                                'water thr', 'water pipe line'],
     'ground water_keywords': ['in filtration well', 'infiltration well',
                               'borewell', 'borwell', 'water har'],
     'toilet_keywords': ['toilet'],
     'c_b_keywords': ['crematorium', 'burial ground'],
     'health care_keywords': ['hospital', 'moh ', 'phc ', 'sanitary', 'doctor',
-                             'primary hea', 'covid'],
+                             'primary hea', 'covid', 'aids'],
     'school or college_keywords': ['school', 'anganawadi', 'anganavadi',
                                    'anganwadi', 'pu college', 'college'],
     'poll_station_keywords': ['polling station'],
@@ -45,14 +46,15 @@ keyword_categories = {
     'library_keywords': ['library', 'libraury'],
     'gym_yoga_keywords': ['gym', 'yoga'],
     'sports_keywords': ['stadium', 'badminton', 'play eq', 'play gr', 'playgr'
-                        'basket ball', 'kabbadi', 'volley ball', 'sports'],
+                        'basket ball', 'kabbadi', 'volley ball', 'sports',
+                        'tennis'],
     'indira canteen_keywords': ['indira canteen', 'indrira canteen',
                                 'canteen'],
     'House of Worship_keywords': ['temple', 'ganesha', 'prayer'],
     'name_board_keywords': ['name board', 'name bord'],
     'emergency_keywords': ['emergency work'],
     'EWS_keywords': ['ews house'],
-    'waste management_keywords': ['sweep smart'],
+    'waste management_keywords': ['sweep smart', 'dustbin'],
     'maintenance_keywords': ['annual maint', 'maintenance']
 }
 
@@ -77,3 +79,4 @@ empty_category_rows.reset_index(drop=True, inplace=True)
 
 # Display final DataFrame
 print(empty_category_rows)
+empty_category_rows.to_csv('/home/thiyaku/Projects/personal/datajam/csv/uncategorised.csv', index=False)
