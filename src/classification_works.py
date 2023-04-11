@@ -11,7 +11,8 @@ col = 'Name_of_Work'
 df[col] = df[col].str.lower()
 df.Name_of_Work = df.Name_of_Work.replace(r'\s+', ' ', regex=True)
 
-road_keywords = ['pot hole', 'road']
+road_keywords = ['pot hole', 'pothole', 'road', 'asphalt', 'fly over',
+                 'flyover']
 for keyword in road_keywords:
     mask = np.column_stack([df[col].str.contains(keyword)])
     df['Category'].loc[mask] = 'Road'
@@ -21,10 +22,17 @@ for keyword in drainage_keywords:
     mask = np.column_stack([df[col].str.contains(keyword)])
     df['Category'].loc[mask] = 'Drainage'
 
-mask = np.column_stack([df[col].str.contains("light")])
-df['Category'].loc[mask] = 'Lights'
+electricity_keywords = ['electric', 'light', 'illumination']
+for keyword in electricity_keywords:
+    mask = np.column_stack([df[col].str.contains(keyword)])
+    df['Category'].loc[mask] = 'Electric work'
+    
+women_keywords = ['stri shakthi']
+for keyword in women_keywords:
+    mask = np.column_stack([df[col].str.contains(keyword)])
+    df['Category'].loc[mask] = 'Women empowerment'
 
-dw_keywords = ['drinking water', 'drinking']
+dw_keywords = ['drinking water', 'drinking', 'supply of water', 'water supply']
 for keyword in dw_keywords:
     mask = np.column_stack([df[col].str.contains(keyword)])
     df['Category'].loc[mask] = 'Drinking water'
@@ -63,7 +71,7 @@ for keyword in skill_devp_keywords:
 
 mask = np.column_stack([df[col].str.contains("park")])
 df['Category'].loc[mask] = 'Parks'
-samudhaya_keywords = ['samudhaya bhavan']
+samudhaya_keywords = ['samudhaya', 'samudaya']
 for keyword in samudhaya_keywords:
     mask = np.column_stack([df[col].str.contains(keyword)])
     df['Category'].loc[mask] = 'Samudhaya bhavana'
@@ -78,12 +86,26 @@ for keyword in gym_yoga_keywords:
     mask = np.column_stack([df[col].str.contains(keyword)])
     df['Category'].loc[mask] = 'Gym/Yoga'
 
-sports_keywords = ['stadium']
+sports_keywords = ['stadium', 'badminton', 'play eq']
 for keyword in sports_keywords:
     mask = np.column_stack([df[col].str.contains(keyword)])
     df['Category'].loc[mask] = 'Sports'
 
-    
+indira_canteen_keywords = ['indira canteen']
+for keyword in indira_canteen_keywords:
+    mask = np.column_stack([df[col].str.contains(keyword)])
+    df['Category'].loc[mask] = 'Indira canteen'
+
+HoW_keywords = ['temple', 'ganesha']
+for keyword in HoW_keywords:
+    mask = np.column_stack([df[col].str.contains(keyword)])
+    df['Category'].loc[mask] = 'House of worship'
+
+name_board_keywords = ['name_board', 'name_bord']
+for keyword in name_board_keywords:
+    mask = np.column_stack([df[col].str.contains(keyword)])
+    df['Category'].loc[mask] = 'Name board'
+
 empty_cols = df['Category'] == ''
 foo = df.loc[empty_cols].reset_index()
 print(foo['Name_of_Work'][1])
