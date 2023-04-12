@@ -80,3 +80,12 @@ empty_category_rows.reset_index(drop=True, inplace=True)
 # Display final DataFrame
 print(empty_category_rows)
 empty_category_rows.to_csv('/home/thiyaku/Projects/personal/datajam/csv/uncategorised.csv', index=False)
+
+df.to_csv('/home/thiyaku/Projects/personal/datajam/csv/categorised.csv', index=False)
+import csv
+out_csv = '/home/thiyaku/Projects/personal/datajam/csv/keywords.csv'
+field_names = list(keyword_categories.keys())
+with open(out_csv, 'w') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames=field_names)
+    writer.writeheader()
+    writer.writerows([keyword_categories])
