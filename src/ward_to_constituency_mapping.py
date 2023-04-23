@@ -10,10 +10,12 @@ w_c_df = pd.read_csv(w_c_file)
 
 # Update 'Constituency' column with corresponding constituency names
 for ward_num in spending_df['Ward No']:
-    ward_s_index = spending_df['Ward No'] == ward_num
+    
     if np.isnan(ward_num):
+        ward_s_index = np.isnan(spending_df['Ward No'])
         spending_df.loc[ward_s_index, 'Constituency'] = 'Unknown'
     else:
+        ward_s_index = spending_df['Ward No'] == ward_num
         ward_c_index = w_c_df['Ward Num'] == ward_num
         c_name = (w_c_df.loc[ward_c_index, 'Parliamentary Constituency Name']
                   .reset_index()['Parliamentary Constituency Name'][0])
